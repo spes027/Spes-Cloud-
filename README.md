@@ -3,8 +3,9 @@ This is a repository for the Spes clound network
  
 ## Automated ELK Stack Deployment
 
-The files in this repository were used to configure the network depicted below.
-<img width="616" alt="Diagram" src="https://user-images.githubusercontent.com/84035560/133828311-4019d5c9-8b96-4285-9ddd-7334adde9c36.png">
+
+
+<img width="493" alt="Elk Diagram" src="https://user-images.githubusercontent.com/84035560/133838740-966a1080-21d8-4cf2-97a7-b03cd24dca13.png">
 
 	
 
