@@ -4,9 +4,9 @@ This is a repository for the Spes clound network
 ## Automated ELK Stack Deployment
 
 The files in this repository were used to configure the network depicted below.
+<img width="616" alt="Diagram" src="https://user-images.githubusercontent.com/84035560/133828311-4019d5c9-8b96-4285-9ddd-7334adde9c36.png">
 
-	~/Documents/di<img width="616" alt="Diagram" src="https://user-images.githubusercontent.com/84035560/133828041-5a57747c-e1d2-42fa-a1d0-e4b56d750c4c.png">
-agram.png
+	
 
 These files have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above. Alternatively, select portions of the _____ file may be used to install only certain pieces of it, such as Filebeat.
 
