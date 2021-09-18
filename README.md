@@ -6,11 +6,7 @@ This is a repository for the Spes clound network
 
 
 
-<img width="493" alt="Elk Diagram" src="https://user-images.githubusercontent.com/84035560/133905361-e59faad5-6917-4503-9d47-9aaf800e7bb6.png">
 
-
-
->>>>>>> 6c5eaa230f76cb98b277b5a5eed38ffba3c81f18
 	
 
 These files have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above. Alternatively, select portions of the yml and config files may be used to install only certain pieces of it, such as Filebeat.
@@ -89,7 +85,7 @@ The main advantage of Ansible is that it allows you to distribute multitier apps
 The playbook implements the following tasks:
 - _TODO: In 3-5 bullets, explain the steps of the ELK installation play. E.g., install Docker; download image; etc._
 - ---
-- name: Configure Elk VM with Docker
+-``` name: Configure Elk VM with Docker
   hosts: elk
   remote_user: SPES027
   become: true
@@ -101,7 +97,7 @@ The playbook implements the following tasks:
         force_apt_get: yes
         name: docker.io
         state: present
-
+```
       # Use apt module
     - name: Install python3-pip
       apt:
