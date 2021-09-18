@@ -6,8 +6,9 @@ This is a repository for the Spes clound network
 
 
 
+<img width="493" alt="Elk Diagram" src="https://user-images.githubusercontent.com/84035560/133905361-e59faad5-6917-4503-9d47-9aaf800e7bb6.png">
 
-<img width="493" alt="Elk Diagram" src="https://user-images.githubusercontent.com/84035560/133838740-966a1080-21d8-4cf2-97a7-b03cd24dca13.png">
+
 
 	
 
