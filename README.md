@@ -83,13 +83,18 @@ Ansible was used to automate configuration of the ELK machine. No configuration 
 The main advantage of Ansible is that it allows you to distribute multitier apps.  A playbook is written and ansible executes the commands.
 
 The playbook implements the following tasks:
-- _TODO: In 3-5 bullets, explain the steps of the ELK installation play. E.g., install Docker; download image; etc._
+
+
+- This specifies that these tasks should only be run on the machines in the elk group 
 ```- 
  name: Configure Elk VM with Docker
   hosts: elk
   remote_user: SPES027
   become: true
   tasks:
+```
+- This installs docker on ELK machines 
+```
     # Use apt module
     - name: Install docker.io
       apt:
@@ -98,23 +103,25 @@ The playbook implements the following tasks:
         name: docker.io
         state: present
 ```
+- This installs python 
+```
       # Use apt module
     - name: Install python3-pip
       apt:
         force_apt_get: yes
         name: python3-pip
         state: present
-
+```
+- 
+```
       # Use pip module (It will default to pip3)
     - name: Install Docker module
       pip:
         name: docker
         state: present
-
-      # Use command module
-    - name: Increase virtual memory
-      command: sysctl -w vm.max_map_count=262144
-
+```
+- This configures the VM target to use more memory
+```
       # Use sysctl module
     - name: Use more memory
       sysctl:
@@ -122,7 +129,9 @@ The playbook implements the following tasks:
         value: "262144"
         state: present
         reload: yes
-
+```
+Launching Container with ports below 
+```
       # Use docker_container module
     - name: download and launch a docker elk container
       docker_container:
@@ -135,7 +144,9 @@ The playbook implements the following tasks:
           -  5601:5601
           -  9200:9200
           -  5044:5044
+```
 
+```
       # Use systemd module
     - name: Enable service docker on boot
       systemd:
