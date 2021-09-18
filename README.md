@@ -84,8 +84,8 @@ The main advantage of Ansible is that it allows you to distribute multitier apps
 
 The playbook implements the following tasks:
 - _TODO: In 3-5 bullets, explain the steps of the ELK installation play. E.g., install Docker; download image; etc._
-- ---
--``` name: Configure Elk VM with Docker
+```- 
+ name: Configure Elk VM with Docker
   hosts: elk
   remote_user: SPES027
   become: true
@@ -140,8 +140,8 @@ The playbook implements the following tasks:
     - name: Enable service docker on boot
       systemd:
         name: docker
-        enabled: yes
-- ...
+        enabled: yes```
+
 
 The following screenshot displays the result of running `docker ps` after successfully configuring the ELK instance.
 
