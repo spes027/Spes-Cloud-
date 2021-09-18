@@ -4,13 +4,20 @@ This is a repository for the Spes clound network
  
 ## Automated ELK Stack Deployment
 
-The files in this repository were used to configure the network depicted below.
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 3aae58a947f0c21ddae8a95df9eb0eb16d98d5e6
 
-These files have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above. Alternatively, select portions of the _____ file may be used to install only certain pieces of it, such as Filebeat.
+<img width="493" alt="Elk Diagram" src="https://user-images.githubusercontent.com/84035560/133838740-966a1080-21d8-4cf2-97a7-b03cd24dca13.png">
 
-  - https://github.com/flyrcs/Azure-Virtual-Network-with-ELK-Deployment/blob/master/Ansible/my-playbook1.yml
+	
+
+These files have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above. Alternatively, select portions of the yml and config files may be used to install only certain pieces of it, such as Filebeat.
+
+  - <https://github.com/flyrcs/Azure-Virtual-Network-with-ELK-Deployment/blob/master/Ansible/my-playbook1.yml>
+
 
 This document contains the following details:
 - Description of the Topologu
