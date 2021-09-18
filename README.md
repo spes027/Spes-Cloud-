@@ -4,16 +4,16 @@ This is a repository for the Spes clound network
  
 ## Automated ELK Stack Deployment
 
-
-
-
-<img width="493" alt="Elk Diagram" src="https://user-images.githubusercontent.com/84035560/133838740-966a1080-21d8-4cf2-97a7-b03cd24dca13.png">
-
 	
 
 These files have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above. Alternatively, select portions of the yml and config files may be used to install only certain pieces of it, such as Filebeat.
 
-  - 
+  - [Ansible Playbook](https://github.com/spes027/Spes-Cloud-/blob/main/Ansible/Ansible-Playbook.yml)
+  - [Ansible Hosts](https://github.com/spes027/Spes-Cloud-/blob/main/Ansible/Ansible-Hosts.txt)
+  - [Ansible Configuration](https://github.com/spes027/Spes-Cloud-/blob/main/Ansible/Ansible-config.cfg)
+  - [Ansible ELK Installation and VM Configuration](https://github.com/spes027/Spes-Cloud-/blob/main/Ansible/Ansible-ELK_install.yml)
+  - [Ansible Filebeat Playbook](https://github.com/spes027/Spes-Cloud-/blob/main/Ansible/filebeat-playbook.yml)
+  - [Ansible Filebeat Configuration](https://github.com/spes027/Spes-Cloud-/blob/main/Ansible/filebeat-config.yml)
 
 
 This document contains the following details:
@@ -59,27 +59,85 @@ The machines on the internal network are not exposed to the public Internet.
 Only the Jumpbox machine can accept connections from the Internet. Access to this machine is only allowed from the following IP addresses:
 - 73.247.110.30
 
-Machines within the network can only be accessed by SSH.
+Machines within the network can only be accessed by Work station and Jumpbox Provisioner.
 - Which machine did you allow to access your ELK VM? What was its IP address?_
-The machine with access is the Jumpbox Ip= 104.43.205.224
+The machine with access is the Jumpbox Ip= 104.43.205.224 from SSH port 22.
 
 A summary of the access policies in place can be found in the table below.
 
 | Name     | Publicly Accessible | Allowed IP Addresses |
 |----------|---------------------|----------------------|
 | Jump Box | No                  | Workstation public ip on ssh22 |
-| Web 1    | No                  |                      |
-| Web 2    | No                  |                      |
-| ELK Server| No
+| Web 1    | No                  | 10.0.0.4 on SSH 22                     |
+| Web 2    | No                  | 10.0.0.4 on SSH 22                     |
+| ELK Server| No| Workstation Public IP using TCP 5601 |
+|Load Balancer| No | Work Station IP on HTTP 80 |
+
 ### Elk Configuration
 
 Ansible was used to automate configuration of the ELK machine. No configuration was performed manually, which is advantageous because...
 - What is the main advantage of automating configuration with Ansible?_
-The main advantage of automating configuration with Ansible is the time it saves. Being able to automate save labor costs and allows for energy to be put in other places.
+The main advantage of Ansible is that it allows you to distribute multitier apps.  A playbook is written and ansible executes the commands.
 
 The playbook implements the following tasks:
 - _TODO: In 3-5 bullets, explain the steps of the ELK installation play. E.g., install Docker; download image; etc._
-- ...
+- ---
+- name: Configure Elk VM with Docker
+  hosts: elk
+  remote_user: SPES027
+  become: true
+  tasks:
+    # Use apt module
+    - name: Install docker.io
+      apt:
+        update_cache: yes
+        force_apt_get: yes
+        name: docker.io
+        state: present
+
+      # Use apt module
+    - name: Install python3-pip
+      apt:
+        force_apt_get: yes
+        name: python3-pip
+        state: present
+
+      # Use pip module (It will default to pip3)
+    - name: Install Docker module
+      pip:
+        name: docker
+        state: present
+
+      # Use command module
+    - name: Increase virtual memory
+      command: sysctl -w vm.max_map_count=262144
+
+      # Use sysctl module
+    - name: Use more memory
+      sysctl:
+        name: vm.max_map_count
+        value: "262144"
+        state: present
+        reload: yes
+
+      # Use docker_container module
+    - name: download and launch a docker elk container
+      docker_container:
+        name: elk
+        image: sebp/elk:761
+        state: started
+        restart_policy: always
+        # Please list the ports that ELK runs on
+        published_ports:
+          -  5601:5601
+          -  9200:9200
+          -  5044:5044
+
+      # Use systemd module
+    - name: Enable service docker on boot
+      systemd:
+        name: docker
+        enabled: yes
 - ...
 
 The following screenshot displays the result of running `docker ps` after successfully configuring the ELK instance.
