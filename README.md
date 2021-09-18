@@ -13,7 +13,7 @@ This is a repository for the Spes clound network
 
 These files have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above. Alternatively, select portions of the yml and config files may be used to install only certain pieces of it, such as Filebeat.
 
-  - [Ansible Playbook](https://github.com/spes027/Spes-Cloud-/blob/main/Ansible)
+  - 
 
 
 This document contains the following details:
@@ -29,22 +29,28 @@ This document contains the following details:
 
 The main purpose of this network is to expose a load-balanced and monitored instance of DVWA, the D*mn Vulnerable Web Application.
 
-Load balancing ensures that the application will be highly _____, in addition to restricting _____ to the network.
-- _TODO: What aspect of security do load balancers protect? What is the advantage of a jump box?_
+Load balancing ensures that the application will be highly available, in addition to restricting traffic to the network.
+- What aspect of security do load balancers protect? 
+Load Balancers protect the Avalibility of a website by ristricting flow to servers.
+- What is the advantage of a jump box?_
+The Advantage of a jumpbox is access control this allows only those with ssh access to enter the rest of the the VMs.
 
-Integrating an ELK server allows users to easily monitor the vulnerable VMs for changes to the _____ and system _____.
+Integrating an ELK server allows users to easily monitor the vulnerable VMs for changes to the data and system logs.
 - _TODO: What does Filebeat watch for?_
+File beat monitors log files or locations specified by the user then collects tyhe logs and moves the data to Elastic search or logstash.
+
 - _TODO: What does Metricbeat record?_
+Metricbeat helps to monitor servers by collecting metrics from the system and services running on a server. 
+
 
 The configuration details of each machine may be found below.
-_Note: Use the [Markdown Table Generator](http://www.tablesgenerator.com/markdown_tables) to add/remove values from the table_.
 
 | Name     | Function | IP Address | Operating System |
 |----------|----------|------------|------------------|
 | Jump Box | Gateway  | 10.0.0.1   | Linux            |
-| TODO     |          |            |                  |
-| TODO     |          |            |                  |
-| TODO     |          |            |                  |
+| WEB1     | WebServer| 10.0.0.5   | Linux            |
+| WEB2     | WebServer| 10.0.0.6   | Linux            |
+| ELK      |ELK Server|            |                  |
 
 ### Access Policies
 
