@@ -36,10 +36,10 @@ Load Balancers protect the Avalibility of a website by ristricting flow to serve
 The Advantage of a jumpbox is access control this allows only those with ssh access to enter the rest of the the VMs.
 
 Integrating an ELK server allows users to easily monitor the vulnerable VMs for changes to the data and system logs.
-- _TODO: What does Filebeat watch for?_
+- What does Filebeat watch for?_
 File beat monitors log files or locations specified by the user then collects tyhe logs and moves the data to Elastic search or logstash.
 
-- _TODO: What does Metricbeat record?_
+- What does Metricbeat record?_
 Metricbeat helps to monitor servers by collecting metrics from the system and services running on a server. 
 
 
@@ -50,30 +50,32 @@ The configuration details of each machine may be found below.
 | Jump Box | Gateway  | 10.0.0.1   | Linux            |
 | WEB1     | WebServer| 10.0.0.5   | Linux            |
 | WEB2     | WebServer| 10.0.0.6   | Linux            |
-| ELK      |ELK Server|            |                  |
+| ELK      |ELK Server| 10.1.0.4   | Linux            |
 
 ### Access Policies
 
 The machines on the internal network are not exposed to the public Internet. 
 
-Only the _____ machine can accept connections from the Internet. Access to this machine is only allowed from the following IP addresses:
-- _TODO: Add whitelisted IP addresses_
+Only the Jumpbox machine can accept connections from the Internet. Access to this machine is only allowed from the following IP addresses:
+- 73.247.110.30
 
-Machines within the network can only be accessed by _____.
-- _TODO: Which machine did you allow to access your ELK VM? What was its IP address?_
+Machines within the network can only be accessed by SSH.
+- Which machine did you allow to access your ELK VM? What was its IP address?_
+The machine with access is the Jumpbox Ip= 104.43.205.224
 
 A summary of the access policies in place can be found in the table below.
 
 | Name     | Publicly Accessible | Allowed IP Addresses |
 |----------|---------------------|----------------------|
-| Jump Box | Yes/No              | 10.0.0.1 10.0.0.2    |
-|          |                     |                      |
-|          |                     |                      |
-
+| Jump Box | No                  | Workstation public ip on ssh22 |
+| Web 1    | No                  |                      |
+| Web 2    | No                  |                      |
+| ELK Server| No
 ### Elk Configuration
 
 Ansible was used to automate configuration of the ELK machine. No configuration was performed manually, which is advantageous because...
-- _TODO: What is the main advantage of automating configuration with Ansible?_
+- What is the main advantage of automating configuration with Ansible?_
+The main advantage of automating configuration with Ansible is the time it saves. Being able to automate save labor costs and allows for energy to be put in other places.
 
 The playbook implements the following tasks:
 - _TODO: In 3-5 bullets, explain the steps of the ELK installation play. E.g., install Docker; download image; etc._
