@@ -32,17 +32,24 @@ This document contains the following details:
 The main purpose of this network is to expose a load-balanced and monitored instance of DVWA, the D*mn Vulnerable Web Application.
 
 Load balancing ensures that the application will be highly available, in addition to restricting traffic to the network.
-- What aspect of security do load balancers protect? 
-Load Balancers protect the Avalibility of a website by ristricting flow to servers.
+
+- What aspect of security do load balancers protect?
+ 
+Load Balancers protect the Avalibility of a website by ristricting flow to servers. 
+
 - What is the advantage of a jump box?_
-The Advantage of a jumpbox is access control this allows only those with ssh access to enter the rest of the the VMs.
+
+The Advantage of a jumpbox is access control. It only allows those with ssh access to enter the rest of the the VMs.
 
 Integrating an ELK server allows users to easily monitor the vulnerable VMs for changes to the data and system logs.
-- What does Filebeat watch for?_
-File beat monitors log files or locations specified by the user then collects tyhe logs and moves the data to Elastic search or logstash.
+
+- What does Filebeat watch for?
+
+File beat monitors log files on servers. It searches for changes and logs events to be viewed in ELK.
 
 - What does Metricbeat record?_
-Metricbeat helps to monitor servers by collecting metrics from the system and services running on a server. 
+
+Metricbeat helps to monitor servers by collecting metrics from the system and services running on a server. This can be CPU usage and data. 
 
 
 The configuration details of each machine may be found below.
@@ -52,28 +59,30 @@ The configuration details of each machine may be found below.
 | Jump Box | Gateway  | 10.0.0.1   | Linux            |
 | WEB1     | WebServer| 10.0.0.5   | Linux            |
 | WEB2     | WebServer| 10.0.0.6   | Linux            |
-| ELK      |ELK Server| 10.1.0.4   | Linux            |
+| ELK      |Monitoring| 10.1.0.4   | Linux            |
 
 ### Access Policies
 
 The machines on the internal network are not exposed to the public Internet. 
 
 Only the Jumpbox machine can accept connections from the Internet. Access to this machine is only allowed from the following IP addresses:
-- 73.247.110.30
+- 73.247.XXX.XXX
 
-Machines within the network can only be accessed by Work station and Jumpbox Provisioner.
-- Which machine did you allow to access your ELK VM? What was its IP address?_
+Machines within the network can only be accessed by a selected Work station and then into the Jumpbox Provisioner and so on
+.
+- Which machine did you allow to access your ELK VM? What was its IP address?
+
 The machine with access is the Jumpbox Ip= 104.43.205.224 from SSH port 22.
 
 A summary of the access policies in place can be found in the table below.
 
 | Name     | Publicly Accessible | Allowed IP Addresses |
 |----------|---------------------|----------------------|
-| Jump Box | No                  | Workstation public ip on ssh22 |
-| Web 1    | No                  | 10.0.0.4 on SSH 22                     |
-| Web 2    | No                  | 10.0.0.4 on SSH 22                     |
-| ELK Server| No| Workstation Public IP using TCP 5601 |
-|Load Balancer| No | Work Station IP on HTTP 80 |
+| Jump Box | No                  | Workstation public ip |
+| Web 1    | No                  | 10.0.0.4  |
+| Web 2    | No                  | 10.0.0.4 |
+| ELK Server| No                 |10.0.0.4|
+
 
 ### Elk Configuration
 
@@ -159,7 +168,6 @@ The following screenshot displays the result of running `docker ps` after succes
 This ELK server is configured to monitor the following machines:
 - Web-1: 10.0.0.5
 - Web-2: 10.0.0.6
-- DVWA
 
 We have installed the following Beats on these machines:
 
@@ -203,22 +211,22 @@ SSH into the control node and follow the steps below:
 |--------|---------|
 |ssh-keygen| create a ssh key for setup VM's|
 |sudo cat .ssh/id_rsa.pub| to view the ssh public key|
-|ssh azadmin@Jump-Box-Provisioner IP address| to log into the Jump-Box-Provisioner|
+|ssh YOUR USER NAME@Jump-Box-Provisioner IP address| to log into the Jump-Box-Provisioner|
 |sudo docker container list -a|	list all docker containers|
 |sudo docker ps -a|list all active/inactive containers|
 |sudo docker start (container name)| Start container|
+|sudo docker exec -it (container name) bash| enter container|
 |cd /etc/ansible|	Change directory to the Ansible directory|
-|ls -laA|	List all file in directory (including hidden)|
+|ls -aA|	List all file in directory|
 |nano /etc/ansible/hosts|	to edit the hosts file|
 |nano /etc/ansible/ansible.cfg|	to edit the ansible.cfg file|
-|nano /etc/ansible/pentest.yml|	to edit the My-Playbook|
-|ansible-playbook [location][filename]|	to run the playbook|
+|nano /etc/ansible/ansibleplaybook.yml|	to edit the Ansible playbook|
+|ansible-playbook (location)(filename)|	to run the playbook|
 |exit|	to exit out of VM|
 |nano /etc/ansible/ansible.cfg|	to edit the ansible.cfg file|
 |nano /etc/ansible/hosts|	to edit the hosts file|
 |nano /etc/ansible/pentest.yml|	to edit the My-Playbook|
-|ansible-playbook [location][filename]|	to run the playbook|
-|sudo apt-get update|	this will update all packages|
+|sudo apt-get update|	update packages|
 |sudo apt install docker.io|	install docker application|
 |sudo service docker start|	start the docker application|
 |sudo systemctl status docker|	status of the docker application|
@@ -226,8 +234,8 @@ SSH into the control node and follow the steps below:
 |sudo docker pull cyberxsecurity/ansible|	pull the docker container file|
 |sudo docker run -ti cyberxsecurity/ansible bash|	run and create a docker container image|
 |ansible -m ping all|	check the connection of ansible containers|
-|curl -L -O [location of the file on the web]|	to download a file from the web|
-|dpkg -i [filename]|	to install the file i.e.| 
+|curl -L -O (location of the file on the web)|	to download a file from the web|
+|dpkg -i (filename)|	to install the file i.e.| 
 |http://ELK IP ADDRESS:5601//app/kibana|	Open web browser and navigate to Kibana Logs|
 |nano filebeat-config.yml|	create and edit filebeat config file|
 |nano filebeat-playbook.yml|	write YAML file to install filebeat on webservers|
