@@ -103,7 +103,7 @@ The playbook implements the following tasks:
         name: docker.io
         state: present
 ```
-- This installs python 
+- This installs python and pip 
 ```
       # Use apt module
     - name: Install python3-pip
@@ -111,9 +111,6 @@ The playbook implements the following tasks:
         force_apt_get: yes
         name: python3-pip
         state: present
-```
-- 
-```
       # Use pip module (It will default to pip3)
     - name: Install Docker module
       pip:
@@ -145,13 +142,14 @@ Launching Container with ports below
           -  9200:9200
           -  5044:5044
 ```
-
+- Enables Docker to start up on boot up.
 ```
       # Use systemd module
     - name: Enable service docker on boot
       systemd:
         name: docker
-        enabled: yes```
+        enabled: yes
+```
 
 
 The following screenshot displays the result of running `docker ps` after successfully configuring the ELK instance.
@@ -163,7 +161,8 @@ This ELK server is configured to monitor the following machines:
 - _TODO: List the IP addresses of the machines you are monitoring_
 
 We have installed the following Beats on these machines:
-- _TODO: Specify which Beats you successfully installed_
+- 
+_TODO: Specify which Beats you successfully installed_
 
 These Beats allow us to collect the following information from each machine:
 - _TODO: In 1-2 sentences, explain what kind of data each beat collects, and provide 1 example of what you expect to see. E.g., `Winlogbeat` collects Windows logs, which we use to track user logon events, etc._
