@@ -195,7 +195,7 @@ SSH into the control node and follow the steps below:
 
 _As a **Bonus**, provide the specific commands the user will need to run to download the playbook, update the files, etc._
 
-COMMAND	PURPOSE
+|COMMAND	|PURPOSE|
 |ssh-keygen              | create a ssh key for setup VM's|
 |sudo cat .ssh/id_rsa.pub| to view the ssh public key|
 |ssh azadmin@Jump-Box-Provisioner IP address|	to log into the Jump-Box-Provisioner|
