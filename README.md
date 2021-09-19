@@ -1,4 +1,3 @@
-'# Spes-Cloud-
 
 This is a repository for the Spes clound network
  
@@ -17,7 +16,7 @@ These files have been tested and used to generate a live ELK deployment on Azure
   - [Ansible ELK Installation and VM Configuration](https://github.com/spes027/Spes-Cloud-/blob/main/Ansible/Ansible-ELK_install.yml)
   - [Ansible Filebeat Playbook](https://github.com/spes027/Spes-Cloud-/blob/main/Ansible/filebeat-playbook.yml)
   - [Ansible Filebeat Configuration](https://github.com/spes027/Spes-Cloud-/blob/main/Ansible/filebeat-config.yml)
-
+  - [Ansible Metricbeat Playbook](https://github.com/spes027/Spes-Cloud-/blob/main/Ansible/Metricbeat-Playbook.yml)
 
 This document contains the following details:
 - Description of the Topologu
@@ -197,9 +196,10 @@ SSH into the control node and follow the steps below:
 _As a **Bonus**, provide the specific commands the user will need to run to download the playbook, update the files, etc._
 
 COMMAND	PURPOSE
-|ssh-keygen|	create a ssh key for setup VM's|
-|sudo cat .ssh/id_rsa.pub|	to view the ssh public key
-|ssh azadmin@Jump-Box-Provisioner IP address|	to log into the Jump-Box-Provisioner
+|ssh-keygen              | create a ssh key for setup VM's|
+|sudo cat .ssh/id_rsa.pub| to view the ssh public key|
+|ssh azadmin@Jump-Box-Provisioner IP address|	to log into the Jump-Box-Provisioner|
+
 |sudo docker container list -a|	list all docker containers
 |sudo docker start dremy_elbakyan|	start docker container dremy_elbakyan
 |sudo docker ps -a|	list all active/inactive containers
