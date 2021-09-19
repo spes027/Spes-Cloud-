@@ -197,42 +197,43 @@ SSH into the control node and follow the steps below:
 _As a **Bonus**, provide the specific commands the user will need to run to download the playbook, update the files, etc._
 
 COMMAND	PURPOSE
-ssh-keygen	create a ssh key for setup VM's
-sudo cat .ssh/id_rsa.pub	to view the ssh public key
-ssh azadmin@Jump-Box-Provisioner IP address	to log into the Jump-Box-Provisioner
-sudo docker container list -a	list all docker containers
-sudo docker start dremy_elbakyan	start docker container dremy_elbakyan
-sudo docker ps -a	list all active/inactive containers
-sudo docker attach dremy_elbakyan	effectively sshing into the dremy_elbakyan container
-cd /etc/ansible	Change directory to the Ansible directory
-ls -laA	List all file in directory (including hidden)
-nano /etc/ansible/hosts	to edit the hosts file
-nano /etc/ansible/ansible.cfg	to edit the ansible.cfg file
-nano /etc/ansible/pentest.yml	to edit the My-Playbook
-ansible-playbook [location][filename]	to run the playbook
-sudo lsof /var/lib/dpkg/lock-frontend	unlocking a locked file
-ssh ansible@Web-1 IP address	to log into the Web-1 VM
-ssh ansible@Web-2 IP address	to log into the Web-2 VM
-ssh ansible@DVWA-VM3 IP address	to log into the DVWA-VM3 VM
-ssh ansible@ELKserver IP address	to log into the ELKserver VM
-exit	to exit out of docker containers/Jump-Box-Provisioners
-nano /etc/ansible/ansible.cfg	to edit the ansible.cfg file
-nano /etc/ansible/hosts	to edit the hosts file
-nano /etc/ansible/pentest.yml	to edit the My-Playbook
-ansible-playbook [location][filename]	to run the playbook
-sudo apt-get update	this will update all packages
-sudo apt install docker.io	install docker application
-sudo service docker start	start the docker application
-sudo systemctl status docker	status of the docker application
-sudo systemctl start docker	start the docker service
-sudo docker pull cyberxsecurity/ansible	pull the docker container file
-sudo docker run -ti cyberxsecurity/ansible bash	run and create a docker container image
-ansible -m ping all	check the connection of ansible containers
-curl -L -O [location of the file on the web]	to download a file from the web
-dpkg -i [filename]	to install the file i.e. (filebeat & metricbeat)
-http://20.84.136.248:5601//app/kibana	Open web browser and navigate to Kibana Logs
-nano filebeat-config.yml	create and edit filebeat config file
-nano filebeat-playbook.yml	write YAML file to install filebeat on webservers
-nano metricbeat-config.yml	create metricbeat config file and edit it
-nano metricbeat-playbook.yml	write YAML file to install metricbeat on webservers
+|ssh-keygen|	create a ssh key for setup VM's|
+|sudo cat .ssh/id_rsa.pub|	to view the ssh public key
+|ssh azadmin@Jump-Box-Provisioner IP address|	to log into the Jump-Box-Provisioner
+|sudo docker container list -a|	list all docker containers
+|sudo docker start dremy_elbakyan|	start docker container dremy_elbakyan
+|sudo docker ps -a|	list all active/inactive containers
+|sudo docker attach dremy_elbakyan|	effectively sshing into the dremy_elbakyan container
+|cd /etc/ansible|	Change directory to the Ansible directory
+|ls -laA|	List all file in directory (including hidden)
+|nano /etc/ansible/hosts|	to edit the hosts file
+|nano /etc/ansible/ansible.cfg|	to edit the ansible.cfg file
+|nano /etc/ansible/pentest.yml|	to edit the My-Playbook
+|ansible-playbook [location][filename]|	to run the playbook
+|sudo lsof /var/lib/dpkg/lock-frontend|	unlocking a locked file
+|ssh ansible@Web-1 IP address|	to log into the Web-1 VM
+|ssh ansible@Web-2 IP address|	to log into the Web-2 VM
+|ssh ansible@DVWA-VM3 IP address|	to log into the DVWA-VM3 VM
+|ssh ansible@ELKserver IP address|	to log into the ELKserver VM
+|exit|	to exit out of docker containers/Jump-Box-Provisioners
+|nano /etc/ansible/ansible.cfg|	to edit the ansible.cfg file
+|nano /etc/ansible/hosts|	to edit the hosts file
+|nano /etc/ansible/pentest.yml|	to edit the My-Playbook
+|ansible-playbook [location][filename]|	to run the playbook
+|sudo apt-get update|	this will update all packages
+|sudo apt install docker.io|	install docker application
+|sudo service docker start|	start the docker application
+|sudo systemctl status docker|	status of the docker application
+|sudo systemctl start docker|	start the docker service
+|sudo docker pull cyberxsecurity/ansible|	pull the docker container file
+|sudo docker run -ti cyberxsecurity/ansible bash|	run and create a docker container image
+|ansible -m ping all|	check the connection of ansible containers
+|curl -L -O [location of the file on the web]|	to download a file from the web
+|dpkg -i [filename]|	to install the file i.e. 
+(filebeat & metricbeat)
+|http://ELK IP ADDRESS:5601//app/kibana|	Open web browser and navigate to Kibana Logs
+|nano filebeat-config.yml|	create and edit filebeat config file
+|nano filebeat-playbook.yml|	write YAML file to install filebeat on webservers
+|nano metricbeat-config.yml|	create metricbeat config file and edit it
+|nano metricbeat-playbook.yml|	write YAML file to install metricbeat on webservers
 
